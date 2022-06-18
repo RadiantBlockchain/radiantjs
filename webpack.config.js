@@ -6,9 +6,9 @@ module.exports = {
     crypto: 'crypto'
   },
   output: {
-    library: 'bsv',
+    library: 'rad',
     path: path.join(__dirname, '/'),
-    filename: 'bsv.min.js'
+    filename: 'rad.min.js'
   },
   mode: 'production'
 }

@@ -7,9 +7,9 @@ bsv.version = 'v' + require('./package.json').version
 bsv.versionGuard = function (version) {
   if (version !== undefined) {
     var message = `
-      More than one instance of bsv found.
-      Please make sure to require bsv and check that submodules do
-      not also include their own bsv dependency.`
+      More than one instance of radjs found.
+      Please make sure to require radjs and check that submodules do
+      not also include their own radjs dependency.`
     console.warn(message)
   }
 }

@@ -1,12 +1,22 @@
-bsv
+RAD
 ===
 
-Javascript Bitcoin SV library.
+Javascript Radiant Blockchain (RAD) library.
 
-Documentation is available on the [Money Button Documentation Page](https://docs.moneybutton.com/docs/bsv-overview.html).
+https://radiantblockchain.org
+
+https://twitter.com/RadiantLayerOne
+
+```
+npm install @radiantblockchain/radjs
+```
 
 Changelog
 ---------
+
+**1.6.0**
+* Radiant Blockchain Fork
+
 **1.5.0**
 * Add build files into repo.
 
