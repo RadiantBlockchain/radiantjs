@@ -1,12 +1,15 @@
 {
   "name": "@radiantblockchain/radjs",
   "description": "Javascript library for Radiant Blockchain (RAD).",
-  "version": "1.6.19",
+  "version": "1.7.1",
   "author": "Radiant Blockchain <radiantblockchain@protonmail.com>",
   "main": "index.js",
   "scripts": {
     "lint": "standard",
-    "test": "standard && mocha",
+    "lint_test": "standard && mocha",
+    "test": "mocha",
+    "radiant": "mocha --grep=\"radiant\"",
+    "exact_match": "mocha --grep=\"exact_match\"",
     "coverage": "nyc --reporter=text npm run test",
     "build-rad": "webpack index.js --config webpack.config.js",
     "build-ecies": "webpack ecies/index.js --config webpack.subproject.config.js --output-library radEcies -o rad-ecies.min.js",
