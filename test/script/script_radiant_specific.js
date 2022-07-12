@@ -139,6 +139,11 @@ describe('Script (radiant op codes)', function () {
     
     var scriptFromASMToHex = scriptFromASM.toHex();
     toHex.should.equal(scriptFromASMToHex);
+
+    var opReturnType = Script.fromHex('006ad29d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000d39d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000');
+    var opReturnTypeWithAsm = opReturnType.toASM();
+    
+    opReturnTypeWithAsm.should.equal('0 OP_RETURN OP_DISALLOWPUSHINPUTREF 9d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000 OP_DISALLOWPUSHINPUTREFSIBLING 9d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000');
   })
  
   it('exact_match should success parse buffer with OP_PUSHINPUTREF OP_REQUIREINPUTREF OP_DISALLOWPUSHINPUTREF OP_DISALLOWPUSHINPUTREFSIBLING and load 36 bytes', function () {
