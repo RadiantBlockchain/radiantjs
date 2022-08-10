@@ -244,6 +244,14 @@ describe('Transaction', function () {
     satoshis: 1e8
   }
 
+  var simpleUtxoWith1000RAD = {
+    address: fromAddress,
+    txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
+    outputIndex: 1,
+    script: Script.buildPublicKeyHashOut(fromAddress).toString(),
+    satoshis: 1000e8
+  }
+
   var tenth = 1e7
   var fourth = 25e6
   var half = 5e7
@@ -278,12 +286,12 @@ describe('Transaction', function () {
 
     it('adds OP_FALSE in front of OP_RETURN', function () {
       var transaction = new Transaction()
-        .from(simpleUtxoWith100000Satoshis)
+        .from(simpleUtxoWith1000RAD)
         .addSafeData('genesis is coming')
         .change(changeAddress)
         .sign(privateKey)
 
-      transaction.serialize().should.equal('01000000015884e5db9de218238671572340b207ee85b628074e7e467096c267266baf77a4000000006b4830450221009342991af752bf19493c3fad4fc7cf42a536b665d2c72ccd5ffccd5074cff8ae022012494eba7f401e91fe365403f65afd4226acc53dd46f9680244562433b6ea4a941210223078d2942df62c45621d209fab84ea9a7a23346201b7727b9b45a29c4e76f5effffffff02000000000000000014006a1167656e6573697320697320636f6d696e6731860100000000001976a914073b7eae2823efa349e3b9155b8a735526463a0f88ac00000000')
+      transaction.outputs[0].script.toASM().should.equal('0 OP_RETURN 67656e6573697320697320636f6d696e67');
     })
 
     describe('isFullySigned', function () {
@@ -488,10 +496,10 @@ describe('Transaction', function () {
         return transaction.serialize()
       }).to.throw(errors.Transaction.FeeError.TooLarge)
     })
-    it('fails if a dust output is created', function () {
+    it('fails if a zero output is created', function () {
       var transaction = new Transaction()
         .from(simpleUtxoWith1BSV)
-        .to(toAddress, 545)
+        .to(toAddress, 0)
         .change(changeAddress)
         .sign(privateKey)
       expect(function () {
@@ -542,11 +550,11 @@ describe('Transaction', function () {
     })
     it('will throw fee error with disableMoreOutputThanInput enabled (but not triggered)', function () {
       var transaction = new Transaction()
-      transaction.from(simpleUtxoWith1BSV)
+      transaction.from(simpleUtxoWith1000RAD)
       transaction
         .to(toAddress, 84000000)
         .change(changeAddress)
-        .fee(16000000)
+        .fee(16000000000)
 
       expect(function () {
         return transaction.serialize({
@@ -583,7 +591,7 @@ describe('Transaction', function () {
       it('can skip the check that prevents dust outputs', buildSkipTest(
         function (transaction) {
           return transaction
-            .to(toAddress, 100)
+            .to(toAddress, 0)
             .change(changeAddress)
             .sign(privateKey)
         }, 'disableDustOutputs', errors.Transaction.DustOutputs
