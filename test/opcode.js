@@ -83,8 +83,8 @@ describe('Opcode', function () {
   })
 
   describe('@map', function () {
-    it('should have a map containing 118 elements', function () {
-      Object.keys(Opcode.map).length.should.equal(118)
+    it('should have a map containing 126 elements', function () {
+      Object.keys(Opcode.map).length.should.equal(126)
     })
   })
 
