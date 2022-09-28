@@ -6,9 +6,9 @@ module.exports = {
     crypto: 'crypto'
   },
   output: {
-    library: 'rad',
+    library: 'radiantjs',
     path: path.join(__dirname, '/'),
-    filename: 'rad.min.js'
+    filename: 'radiant.min.js'
   },
   mode: 'production'
 }

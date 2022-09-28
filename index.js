@@ -1,67 +1,68 @@
 'use strict'
 
-var bsv = module.exports
+var radiantjs = module.exports
 
 // module information
-bsv.version = 'v' + require('./package.json').version
-bsv.versionGuard = function (version) {
+radiantjs.version = 'v' + require('./package.json').version
+radiantjs.versionGuard = function (version) {
   if (version !== undefined) {
     var message = `
-      More than one instance of radjs found.
-      Please make sure to require radjs and check that submodules do
-      not also include their own radjs dependency.`
+      More than one instance of radiantjs found.
+      Please make sure to require radiantjs and check that submodules do
+      not also include their own radiantjs dependency.`
     console.warn(message)
   }
 }
-bsv.versionGuard(global._bsv)
-global._bsv = bsv.version
+var global = global || {};
+radiantjs.versionGuard(global._radiantjs)
+global._radiantjs = radiantjs.version
 
 // crypto
-bsv.crypto = {}
-bsv.crypto.BN = require('./lib/crypto/bn')
-bsv.crypto.ECDSA = require('./lib/crypto/ecdsa')
-bsv.crypto.Hash = require('./lib/crypto/hash')
-bsv.crypto.Random = require('./lib/crypto/random')
-bsv.crypto.Point = require('./lib/crypto/point')
-bsv.crypto.Signature = require('./lib/crypto/signature')
+radiantjs.crypto = {}
+radiantjs.crypto.BN = require('./lib/crypto/bn')
+radiantjs.crypto.ECDSA = require('./lib/crypto/ecdsa')
+radiantjs.crypto.Hash = require('./lib/crypto/hash')
+radiantjs.crypto.Random = require('./lib/crypto/random')
+radiantjs.crypto.Point = require('./lib/crypto/point')
+radiantjs.crypto.Signature = require('./lib/crypto/signature')
 
 // encoding
-bsv.encoding = {}
-bsv.encoding.Base58 = require('./lib/encoding/base58')
-bsv.encoding.Base58Check = require('./lib/encoding/base58check')
-bsv.encoding.BufferReader = require('./lib/encoding/bufferreader')
-bsv.encoding.BufferWriter = require('./lib/encoding/bufferwriter')
-bsv.encoding.Varint = require('./lib/encoding/varint')
+radiantjs.encoding = {}
+radiantjs.encoding.Base58 = require('./lib/encoding/base58')
+radiantjs.encoding.Base58Check = require('./lib/encoding/base58check')
+radiantjs.encoding.BufferReader = require('./lib/encoding/bufferreader')
+radiantjs.encoding.BufferWriter = require('./lib/encoding/bufferwriter')
+radiantjs.encoding.Varint = require('./lib/encoding/varint')
 
 // utilities
-bsv.util = {}
-bsv.util.js = require('./lib/util/js')
-bsv.util.preconditions = require('./lib/util/preconditions')
+radiantjs.util = {}
+radiantjs.util.js = require('./lib/util/js')
+radiantjs.util.preconditions = require('./lib/util/preconditions')
 
 // errors thrown by the library
-bsv.errors = require('./lib/errors')
+radiantjs.errors = require('./lib/errors')
 
 // main bitcoin library
-bsv.Address = require('./lib/address')
-bsv.Block = require('./lib/block')
-bsv.MerkleBlock = require('./lib/block/merkleblock')
-bsv.BlockHeader = require('./lib/block/blockheader')
-bsv.HDPrivateKey = require('./lib/hdprivatekey.js')
-bsv.HDPublicKey = require('./lib/hdpublickey.js')
-bsv.Networks = require('./lib/networks')
-bsv.Opcode = require('./lib/opcode')
-bsv.PrivateKey = require('./lib/privatekey')
-bsv.PublicKey = require('./lib/publickey')
-bsv.Script = require('./lib/script')
-bsv.Transaction = require('./lib/transaction')
+radiantjs.Address = require('./lib/address')
+radiantjs.Block = require('./lib/block')
+radiantjs.MerkleBlock = require('./lib/block/merkleblock')
+radiantjs.BlockHeader = require('./lib/block/blockheader')
+radiantjs.HDPrivateKey = require('./lib/hdprivatekey.js')
+radiantjs.HDPublicKey = require('./lib/hdpublickey.js')
+radiantjs.Networks = require('./lib/networks')
+radiantjs.Opcode = require('./lib/opcode')
+radiantjs.PrivateKey = require('./lib/privatekey')
+radiantjs.PublicKey = require('./lib/publickey')
+radiantjs.Script = require('./lib/script')
+radiantjs.Transaction = require('./lib/transaction')
 
 // dependencies, subject to change
-bsv.deps = {}
-bsv.deps.bnjs = require('bn.js')
-bsv.deps.bs58 = require('bs58')
-bsv.deps.Buffer = Buffer
-bsv.deps.elliptic = require('elliptic')
-bsv.deps._ = require('./lib/util/_')
+radiantjs.deps = {}
+radiantjs.deps.bnjs = require('bn.js')
+radiantjs.deps.bs58 = require('bs58')
+radiantjs.deps.Buffer = Buffer
+radiantjs.deps.elliptic = require('elliptic')
+radiantjs.deps._ = require('./lib/util/_')
 
 // Internal usage, exposed for testing/advanced tweaking
-bsv.Transaction.sighash = require('./lib/transaction/sighash')
+radiantjs.Transaction.sighash = require('./lib/transaction/sighash')

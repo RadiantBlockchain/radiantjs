@@ -1,5 +1,5 @@
-// Type definitions for radjs 1.6.0
-// Project: https://github.com/radiantblockchain/radjs
+// Type definitions for radiantjs 1.7.4
+// Project: https://github.com/radiantblockchain/radiantjs
 // Forked From: https://github.com/moneybutton/bsv
 // Forked From: https://github.com/bitpay/bitcore-lib
 // Definitions by: Lautaro Dragan <https://github.com/lautarodragan>
@@ -10,7 +10,7 @@
 
 /// <reference types="node" />
 
-declare module 'bsv' {
+declare module 'radiantjs' {
 
     export namespace crypto {
         class BN { }

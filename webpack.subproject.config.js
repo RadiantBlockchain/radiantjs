@@ -1,6 +1,6 @@
 module.exports = {
   externals: {
-    '../../': 'bsv'
+    '../../': 'radiantjs'
   },
   mode: 'production'
 }

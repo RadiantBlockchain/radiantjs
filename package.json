@@ -1,7 +1,7 @@
 {
-  "name": "@radiantblockchain/radjs",
-  "description": "Javascript library for Radiant Blockchain (RAD).",
-  "version": "1.7.3",
+  "name": "@radiantblockchain/radiantjs",
+  "description": "Javascript library for Radiant Blockchain",
+  "version": "1.7.4",
   "author": "Radiant Blockchain <radiantblockchain@protonmail.com>",
   "main": "index.js",
   "scripts": {
@@ -11,18 +11,17 @@
     "radiant": "mocha --grep=\"radiant\"",
     "exact_match": "mocha --grep=\"exact_match\"",
     "coverage": "nyc --reporter=text npm run test",
-    "build-rad": "webpack index.js --config webpack.config.js",
-    "build-ecies": "webpack ecies/index.js --config webpack.subproject.config.js --output-library radEcies -o rad-ecies.min.js",
-    "build-message": "webpack message/index.js --config webpack.subproject.config.js --output-library radMessage -o rad-message.min.js",
-    "build-mnemonic": "webpack mnemonic/index.js --config webpack.subproject.config.js --output-library radMnemonic -o rad-mnemonic.min.js",
-    "build": "yarn build-rad && yarn build-ecies && yarn build-message && yarn build-mnemonic",
+    "build-radiant": "webpack index.js --config webpack.config.js",
+    "build-ecies": "webpack ecies/index.js --config webpack.subproject.config.js --output-library radiantEcies -o radiant-ecies.min.js",
+    "build-message": "webpack message/index.js --config webpack.subproject.config.js --output-library radiantMessage -o radiant-message.min.js",
+    "build-mnemonic": "webpack mnemonic/index.js --config webpack.subproject.config.js --output-library radiantMnemonic -o radiant-mnemonic.min.js",
+    "build": "yarn build-radiant && yarn build-ecies && yarn build-message && yarn build-mnemonic",
     "prepublishOnly": "yarn build"
   },
-  "unpkg": "rad.min.js",
+  "unpkg": "radiant.min.js",
   "keywords": [
     "radiant",
     "radiant-blockchain",
-    "rad",
     "transaction",
     "address",
     "p2p",
@@ -33,7 +32,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/radiantblockchain/radjs"
+    "url": "https://github.com/radiantblockchain/radiantjs"
   },
   "browser": {
     "request": "browser-request"
