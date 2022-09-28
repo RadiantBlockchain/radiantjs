@@ -1,18 +1,20 @@
-RAD
+RadiantJS
 ===
 
-Javascript Radiant Blockchain (RAD) library.
+Javascript Radiant Blockchain library.
 
 https://radiantblockchain.org
 
-https://twitter.com/RadiantLayerOne
-
 ```
-npm install @radiantblockchain/radjs
+npm install @radiantblockchain/radiantjs
 ```
 
 Changelog
 ---------
+
+**1.7.5**
+
+* Critical parsing bug fixes
 
 **1.6.0**
 * Radiant Blockchain Fork
