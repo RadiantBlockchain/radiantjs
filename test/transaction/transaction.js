@@ -291,7 +291,7 @@ describe('Transaction', function () {
         .change(changeAddress)
         .sign(privateKey)
 
-      transaction.outputs[0].script.toASM().should.equal('0 OP_RETURN 67656e6573697320697320636f6d696e67');
+      transaction.outputs[0].script.toASM().should.equal('0 OP_RETURN 67656e6573697320697320636f6d696e67')
     })
 
     describe('isFullySigned', function () {

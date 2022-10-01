@@ -173,7 +173,7 @@ describe('Block', function () {
           }],
           outputs: [{
             satoshis: 5000000000000,
-            script: '76a9143a23c6b9055b533db3900e4755dd58d1234c858288ac',
+            script: '76a9143a23c6b9055b533db3900e4755dd58d1234c858288ac'
           }],
           nLockTime: 0
         }]
