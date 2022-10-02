@@ -1,7 +1,7 @@
 {
   "name": "@radiantblockchain/radiantjs",
   "description": "Javascript library for Radiant Blockchain",
-  "version": "1.7.8",
+  "version": "1.7.9",
   "author": "Radiant Blockchain <radiantblockchain@protonmail.com>",
   "main": "index.js",
   "scripts": {
