@@ -13,7 +13,7 @@ radiantjs.versionGuard = function (version) {
     console.warn(message)
   }
 }
-var global = global || {};
+var global = global || {}
 radiantjs.versionGuard(global._radiantjs)
 global._radiantjs = radiantjs.version
 
