@@ -97,6 +97,13 @@ describe('Script (radiant op codes)', function () {
     script.chunks[1].opcodenum.should.equal(213)
   })
 
+  it('should success parse OP_OUTPUTREFVALUESUM', function () {
+    var buf = Buffer.from([0, 214])
+    var script = Script.fromBuffer(buf)
+    script.chunks.length.should.equal(2)
+    script.chunks[1].opcodenum.should.equal(214)
+  })
+
   it('should success parse buffer with OP_PUSHINPUTREF OP_REQUIREINPUTREF OP_DISALLOWPUSHINPUTREF OP_DISALLOWPUSHINPUTREFSIBLING OP_PUSHINPUTREFSINGLETON and load 36 bytes', function () {
     var buf = Buffer.from(
       [
@@ -104,11 +111,11 @@ describe('Script (radiant op codes)', function () {
         209, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
         210, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
         211, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
-        215, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+        215, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
 
       ])
     var script = Script.fromBuffer(buf)
-    script.chunks.length.should.equal(4)
+    script.chunks.length.should.equal(5)
     script.chunks[0].opcodenum.should.equal(208)
     script.chunks[0].buf.toString('hex').should.equal('000800000000000000000000000000000000000000000000000000000000000000000002')
     script.chunks[1].opcodenum.should.equal(209)
@@ -125,7 +132,7 @@ describe('Script (radiant op codes)', function () {
 
     var scriptFromString = Script.fromString(toString)
     var toHex = scriptFromString.toHex()
-    toHex.should.equal('d0000800000000000000000000000000000000000000000000000000000000000000000002d1000900000000000000000000000000000000000000000000000000000000000000000002d2000a00000000000000000000000000000000000000000000000000000000000000000002d3000b00000000000000000000000000000000000000000000000000000000000000000002d6000c00000000000000000000000000000000000000000000000000000000000000000002')
+    toHex.should.equal('d0000800000000000000000000000000000000000000000000000000000000000000000002d1000900000000000000000000000000000000000000000000000000000000000000000002d2000a00000000000000000000000000000000000000000000000000000000000000000002d3000b00000000000000000000000000000000000000000000000000000000000000000002d7000c00000000000000000000000000000000000000000000000000000000000000000002')
 
     var scriptFromHex = Script.fromHex(toHex)
     var scriptFromHexToSring = scriptFromHex.toString()
@@ -142,11 +149,11 @@ describe('Script (radiant op codes)', function () {
     var scriptFromASMToHex = scriptFromASM.toHex()
     toHex.should.equal(scriptFromASMToHex)
 
-    var opReturnType = Script.fromHex('006ad29d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000d39d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000d69d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000')
+    var opReturnType = Script.fromHex('006ad29d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000d39d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000d79d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000')
     var opReturnTypeWithAsm = opReturnType.toASM()
 
     opReturnTypeWithAsm.should.equal('0 OP_RETURN OP_DISALLOWPUSHINPUTREF 9d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000 OP_DISALLOWPUSHINPUTREFSIBLING 9d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000 OP_PUSHINPUTREFSINGLETON 9d529de3fa0192ea698f971b1d276057d65510b61c73bf54fd26432d144372dd00000000')
-
+ 
   })
 
   it('exact_match should success parse buffer with pushes and load 36 bytes', function () {
