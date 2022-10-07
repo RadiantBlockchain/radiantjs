@@ -12,6 +12,10 @@ npm install @radiantblockchain/radiantjs
 Changelog
 ---------
 
+**1.8.0**
+
+* Add support for OP_PUSHINPUTREFSINGLETON and OP_OUTPUTREFVALUESUM
+
 **1.7.5**
 
 * Critical parsing bug fixes
