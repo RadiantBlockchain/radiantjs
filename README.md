@@ -1,7 +1,7 @@
 RadiantJS
 ===
 
-Javascript Radiant Blockchain library.
+Javascript Radiant Blockchain (RXD) library.
 
 https://radiantblockchain.org
 
@@ -11,6 +11,10 @@ npm install @radiantblockchain/radiantjs
 
 Changelog
 ---------
+
+**1.9.0**
+
+* Add support for Radiant Node 1.2.0
 
 **1.8.0**
 
