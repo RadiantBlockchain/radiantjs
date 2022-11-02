@@ -12,13 +12,9 @@ npm install @radiantblockchain/radiantjs
 Changelog
 ---------
 
-**1.9.0**
+**1.9.4**
 
-* Add support for Radiant Node 1.2.0
-
-**1.8.0**
-
-* Add support for OP_PUSHINPUTREFSINGLETON and OP_OUTPUTREFVALUESUM
+* Add support for Radiant Node 1.2.0 
 
 **1.7.5**
 
